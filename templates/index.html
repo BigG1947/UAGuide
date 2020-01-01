@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>UA Guide - Головна</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/static/img/svg/search-solid.svg" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="/static/css/mdb.min.css">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<!-- Main navigation -->
+<header>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><strong><span class="blue-text">U</span><span class="yellow-text">A</span>
+                    Guide</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                    aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Головна <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cabinet">Кабінет</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hello">Ознайомитися</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar -->
+    <!-- Full Page Intro -->
+    <div class="view" style="background-image: url('/static/img/kiev-logo2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <!-- Mask & flexbox options-->
+        <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+            <!-- Content -->
+            <div class="container">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-md-12 mb-4 white-text text-center">
+                        <h1 class="h1-reponsive white-text text-uppercase font-weight-bold mb-0 pt-md-5 pt-5 wow fadeInDown"
+                            data-wow-delay="0.3s"><strong>Твій персональний гід</strong></h1>
+                        <hr class="hr-light my-4 wow fadeInDown" data-wow-delay="0.4s">
+                        <h5 class="text-uppercase mb-4 white-text wow fadeInDown" data-wow-delay="0.4s"><strong>Подорожуй
+                                разом з нами та не майнуй часу</strong></h5>
+                        <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s"
+                           href="#hello">ознайомитися</a>
+                        <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s" href="/signUp">приєднатися</a>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </div>
+            <!-- Content -->
+        </div>
+        <!-- Mask & flexbox options-->
+    </div>
+    <!-- Full Page Intro -->
+</header>
+<!-- Main navigation -->
+
+
+<!-- Content -->
+<div class="container z-depth-1 my-5 p-5">
+
+    <!-- Section -->
+    <section id="hello">
+
+        <h3 class="font-weight-bold text-center dark-grey-text pb-2">UA Guide</h3>
+        <hr class="w-header my-4">
+        <p class="lead text-center text-muted pt-2 mb-5">Наш сервіс пропунує наступний перечень послуг.</p>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-6 col-xl-4">
+                <h5 class="font-weight-normal"><a class="dark-grey-text">Цікаві місця</a></h5>
+                {{/*                <p class="small grey-text">Responsive, Minimalism</p>*/}}
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-muted mb-5 pb-2">Перечень цікавих місць у різних куточках країни з якими ви можете
+                    ознайомитися під час своєї подорожі, або зазделегідь спланувати свою подорож крізь ці місця. Так
+                    само маєте можливість пропонувати свої місця, та оцінювати місця в яких ви були.</p>
+            </div>
+
+
+            <div class="col-md-6 col-xl-4">
+                <h5 class="font-weight-normal"><a class="dark-grey-text">Зберігай та роби свій персональний
+                        "плей-ліст"</a></h5>
+                {{/*                <p class="small grey-text">PHP, MySQL, Laravel</p>*/}}
+            </div>
+
+            <div class="col-md-6">
+                <p class="text-muted mb-5 pb-2">Зберігай та роби свій персональний
+                    "плей-ліст" з місцями у яких мрієш побувати. Май можливість переглянути їх у будь-який момент у
+                    своєму особистому кабінеті.</p>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- Section -->
+
+    <!-- Section -->
+    <section>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe id="player" class="embed-responsive-item"
+                                src="https://www.youtube.com/embed/siGijqEl1rg" frameborder="0"
+                                allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="font-weight-bold text-center dark-grey-text pb-2">Приєднуйся</h3>
+        <hr class="w-header my-4">
+        <p class="lead text-center text-muted pt-2 mb-5">Почни користуватися нашим сервісом вже зараз.</p>
+
+        <div class="row align-items-center">
+
+            <div class="col-12 col-lg-6 mb-4">
+                <div class="view z-depth-1-half rounded h-auto">
+                    <img class="rounded img-fluid"
+                         src="/static/img/kiev-logo.jpg"
+                         alt="Video title">
+                    <div class="mask flex-center rgba-black-light">
+                        <a id="play" class="btn-floating btn-primary btn-lg" data-toggle="modal"
+                           data-target="#modal1"><i class="fas fa-play"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6 mb-4">
+
+                <ol class="step pl-0">
+                    <li class="step-element pb-0">
+                        <div class="step-number">
+                            <span class="number">1</span>
+                        </div>
+                        <div class="step-excerpt d-flex align-items-center">
+                            <h6 class="font-weight-bold dark-grey-text">Зареєструй свій аккаунт</h6>
+                            {{/*                            <p class="text-muted">Think the or organization same proposal to affected heard reclined in*/}}
+                            {{/*                                be it reassuring.</p>*/}}
+                        </div>
+                    </li>
+                    <li class="step-element pb-0">
+                        <div class="step-number">
+                            <span class="number">2</span>
+                        </div>
+                        <div class="step-excerpt d-flex align-items-center">
+                            <h6 class="font-weight-bold dark-grey-text">Обери місто в яке плануєш подорож</h6>
+                            {{/*                            <p class="text-muted">Think the or organization same proposal to affected heard reclined in*/}}
+                            {{/*                                be it reassuring.</p>*/}}
+                        </div>
+                    </li>
+                    <li class="step-element pb-0">
+                        <div class="step-number">
+                            <span class="number">3</span>
+                        </div>
+                        <div class="step-excerpt d-flex align-items-center">
+                            <h6 class="font-weight-bold dark-grey-text">Обери найпривабливіші місця</h6>
+                            {{/*                            <p class="text-muted">Think the or organization same proposal to affected heard reclined in*/}}
+                            {{/*                                be it reassuring.</p>*/}}
+                        </div>
+                    </li>
+                </ol>
+
+            </div>
+
+        </div>
+
+        <div class="row my-3 justify-content-center">
+            <a class="btn btn-outline-grey grey-text wow fadeInDown" data-wow-delay="0.4s" href="/signUp">приєднатися</a>
+        </div>
+
+    </section>
+    <!-- Section -->
+
+</div>
+<!-- Content -->
+
+
+<!-- Footer -->
+<footer class="page-footer font-small blue-grey darken-4 py-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-6 d-flex justify-content-start">
+                <!-- Copyright -->
+                <div class="footer-copyright text-center bg-transparent">© 2019 Copyright:
+                    <a href="https://mdbootstrap.com/education/bootstrap/"> UA Guide</a>
+                </div>
+                <!-- Copyright -->
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <ul class="list-unstyled d-flex mb-0">
+                    <li>
+                        <a class="mr-3" role="button"><i class="fab fa-facebook-f"></i></a>
+                    </li>
+                    <li>
+                        <a class="mr-3" role="button"><i class="fab fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a class="mr-3" role="button"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li>
+                        <a class="" role="button"><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer Elements -->
+
+</footer>
+<!-- Footer -->
+
+<!-- jQuery -->
+<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/static/js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/static/js/mdb.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript">
+    new WOW().init();
+
+    const anchors = document.querySelectorAll('a[href*="#"]');
+
+    for (let anchor of anchors) {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            let blockID = anchor.getAttribute('href');
+            document.querySelector(blockID).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
+        })
+    }
+</script>
+
+</body>
+</html>
