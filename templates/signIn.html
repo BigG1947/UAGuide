@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>UA Guide - Головна</title>
+    <title>UA Guide - Авторизація</title>
     <!-- MDB icon -->
     <link rel="icon" href="/static/img/svg/search-solid.svg" type="image/x-icon">
     <!-- Font Awesome -->
@@ -37,9 +37,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/cabinet">Кабінет</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hello">Ознайомитися</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -60,7 +57,8 @@
             <div class="container py-5 my-5">
 
                 <h3 class="font-weight-bold text-center white-text pb-2">Авторизація</h3>
-                <p class="lead text-center white-text pt-2 mb-5">Щоб потрапити до особистого кабінету спершу потрібно увійти у свій обліковий запис.</p>
+                <p class="lead text-center white-text pt-2 mb-5">Щоб потрапити до особистого кабінету спершу потрібно
+                    увійти у свій обліковий запис.</p>
 
                 <!--Grid row-->
                 <div class="row d-flex align-items-center justify-content-center wow fadeInDown" data-wow-delay="0.4s">
@@ -68,25 +66,40 @@
                     <div class="col-md-6 col-xl-5">
                         <!--Form-->
                         <div class="card">
-                            <div class="card-body z-depth-2 px-4">
-                                <div class="md-form">
-                                    <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="text" id="form2" class="form-control">
-                                    <label for="form2">Ваша почта</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-key prefix grey-text"></i>
-                                    <input type="text" id="form4" class="form-control">
-                                    <label for="form4">Ваш пароль</label>
-                                </div>
-                                <div class="text-center my-3">
-                                    <button class="btn btn-indigo btn-block">увійти</button>
-                                </div>
+                            <form action="" method="post">
+                                <div class="card-body z-depth-2 px-4">
+                                    {{ if not (eq (len .errorMessage) 0) }}
+                                        <div class="alert alert-arrow alert-arrow-danger d-flex rounded p-0" role="alert">
+                                            <div class="alert-icon d-flex justify-content-center align-items-center text-white flex-grow-0 flex-shrink-0">
+                                                <i class="fas fa-times-circle"></i>
+                                            </div>
+                                            <div class="alert-message d-flex align-items-center py-2 pl-4 pr-3">
+                                                {{ .errorMessage }}
+                                            </div>
+                                            <a href="#" class="close d-flex ml-auto justify-content-center align-items-center px-3" data-dismiss="alert">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </div>
+                                    {{ end }}
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input name="email" value="{{.user.Email}}" type="email" required id="form2" class="form-control">
+                                        <label for="form2">Ваша почта</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-key prefix grey-text"></i>
+                                        <input name="password" value="" required type="password" id="form4" class="form-control">
+                                        <label for="form4">Ваш пароль</label>
+                                    </div>
+                                    <div class="text-center my-3">
+                                        <button class="btn btn-indigo btn-block">увійти</button>
+                                    </div>
 
-                                <div class="row justify-content-center">
-                                    <p><a href="/signUp" class="blue-grey-text">У мене ще немає акаунта</a></p>
+                                    <div class="row justify-content-center">
+                                        <p><a href="/signUp" class="blue-grey-text">У мене ще немає акаунта</a></p>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!--/.Form-->
                     </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>UA Guide - Головна</title>
+    <title>UA Guide - Реєстрація</title>
     <!-- MDB icon -->
     <link rel="icon" href="/static/img/svg/search-solid.svg" type="image/x-icon">
     <!-- Font Awesome -->
@@ -18,14 +18,35 @@
 </head>
 <body>
 
+
+    <!-- Position it -->
+    <div style="position: absolute; bottom: 20px; right: 0;">
+
+        <!-- Then put toasts within -->
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="mr-auto">UAGuide</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body" id="toast-body">
+            </div>
+        </div>
+
+    </div>
+
+
 <!-- Main navigation -->
 <header style="height: auto">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <div class="container">
-            <a class="navbar-brand" href="/"><strong><span class="blue-text">U</span><span class="yellow-text">A</span>
+            <a class="navbar-brand" href="/"><strong><span class="blue-text">U</span><span
+                            class="yellow-text">A</span>
                     Guide</strong></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-7"
                     aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,9 +58,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/cabinet">Кабінет</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#hello">Ознайомитися</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -49,7 +67,7 @@
 <!-- Main navigation -->
 
 <!-- Content -->
-<div class="">
+<div>
 
     <!-- Full Page Intro -->
     <section
@@ -64,40 +82,51 @@
                     безкоштовно.</p>
 
                 <!--Grid row-->
-                <div class="row d-flex align-items-center justify-content-center wow fadeInUp" data-wow-delay="0.4s">
+                <div class="row d-flex align-items-center justify-content-center wow fadeInUp"
+                     data-wow-delay="0.4s">
                     <!--Grid column-->
                     <div class="col-md-6 col-xl-5">
                         <!--Form-->
                         <div class="card">
-                            <div class="card-body z-depth-2 px-4">
-                                <div class="md-form mt-3">
-                                    <i class="fa fa-user prefix grey-text"></i>
-                                    <input type="text" id="form3" class="form-control">
-                                    <label for="form3">Ваше ім'я</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="text" id="form2" class="form-control">
-                                    <label for="form2">Ваша почта</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-key prefix grey-text"></i>
-                                    <input type="text" id="form4" class="form-control">
-                                    <label for="form4">Ваш пароль</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-key prefix grey-text"></i>
-                                    <input type="text" id="form5" class="form-control">
-                                    <label for="form5">Ще раз пароль</label>
-                                </div>
-                                <div class="text-center my-3">
-                                    <button class="btn btn-indigo btn-block">зареєструватися</button>
-                                </div>
+                            <form action="/registration" method="post">
+                                <div class="card-body z-depth-2 px-4">
+                                    <div class="md-form mt-3">
+                                        <i class="fa fa-user prefix grey-text"></i>
+                                        <input required type="text" name="fio" id="fio" class="form-control">
+                                        <label for="fio">Ваше ім'я</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input required type="email" name="email" id="email" class="form-control">
+                                        <label for="email">Ваша почта</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-phone prefix grey-text"></i>
+                                        <input required
+                                               pattern="^((8|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                                               type="tel" name="phone" id="phone" class="form-control">
+                                        <label for="phone">Ваш телефон</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-key prefix grey-text"></i>
+                                        <input type="password" name="password" id="password" class="form-control">
+                                        <label for="password">Ваш пароль</label>
+                                    </div>
+                                    <div class="md-form">
+                                        <i class="fas fa-key prefix grey-text"></i>
+                                        <input type="password" required name="password2" id="password2"
+                                               class="form-control">
+                                        <label for="password2">Ще раз пароль</label>
+                                    </div>
+                                    <div class="text-center my-3">
+                                        <button class="btn btn-indigo btn-block">зареєструватися</button>
+                                    </div>
 
-                                <div class="row justify-content-center">
-                                    <p><a href="/signIn" class="blue-grey-text">У мене вже є акаунт</a></p>
+                                    <div class="row justify-content-center">
+                                        <p><a href="/signIn" class="blue-grey-text">У мене вже є акаунт</a></p>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!--/.Form-->
                     </div>
@@ -113,6 +142,7 @@
 
 </div>
 <!-- Content -->
+
 
 <!-- Footer -->
 <footer class="page-footer font-small blue-grey darken-4 py-4">
@@ -163,19 +193,73 @@
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript">
     new WOW().init();
+    var toastBody = document.querySelector("#toast-body");
+    $('.toast').toast({delay: 5000});
 
-    const anchors = document.querySelectorAll('a[href*="#"]');
+    var phoneInput = document.querySelector("#phone");
+    phoneInput.addEventListener("change", function (e) {
+        var xhr = new XMLHttpRequest();
+        var body = phoneInput.value;
+        xhr.open("POST", '/api/checkPhone', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.responseType = "json";
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                toastBody.innerHTML = 'Невідома помилка. Спробуйте пізніше ще раз';
+                $('.toast').toast('show');
+                phoneInput.setCustomValidity("Невідома помилка. Спробуйте пізніше ще раз");
 
-    for (let anchor of anchors) {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            let blockID = anchor.getAttribute('href');
-            document.querySelector(blockID).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            })
-        })
-    }
+            } else {
+                if (xhr.response.ok === "false") {
+                    phoneInput.setCustomValidity("Номер телефону вже використовується!");
+                } else {
+                    phoneInput.setCustomValidity('');
+                }
+            }
+        };
+        xhr.send(body);
+    });
+
+    var emailInput = document.querySelector("#email");
+    emailInput.addEventListener("change", function (e) {
+        var xhr = new XMLHttpRequest();
+        var body = emailInput.value;
+        xhr.open("POST", '/api/checkEmail', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.responseType = "json";
+        xhr.onload = function () {
+            if (xhr.status != 200) {
+                toastBody.innerHTML = 'Невідома помилка. Спробуйте пізніше ще раз';
+                $('.toast').toast('show');
+                emailInput.setCustomValidity('Невідома помилка. Спробуйте пізніше ще раз');
+            } else {
+                if (xhr.response.ok === "false") {
+                    emailInput.setCustomValidity("Поштова адреса вже використовується!");
+                } else {
+                    emailInput.setCustomValidity('');
+                }
+            }
+        };
+        xhr.send(body);
+    });
+
+    var passwordInput = document.querySelector("#password");
+
+    var password2Input = document.querySelector("#password2");
+    password2Input.addEventListener("change", function (e) {
+        if (passwordInput.value !== password2Input.value){
+            password2Input.setCustomValidity('Паролі не співпадають!')
+        } else {
+            password2Input.setCustomValidity('')
+        }
+    });
+
+    // var form = document.querySelector("form");
+    // form.addEventListener("submit", function (e) {
+    //     e.preventDefault();
+    // });
+
+
 </script>
 
 </body>

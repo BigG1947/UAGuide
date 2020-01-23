@@ -1,26 +1,11 @@
-
-html,
-body,
-header,
-.view {
-    height: 100%;
-}
-
-@media (max-width: 740px) {
-    html,
-    body,
-    header,
-    .view {
-        height: 100vh;
-    }
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 .top-nav-collapse {
     background-color: #78909c !important;
 }
 
 .navbar:not(.top-nav-collapse) {
-    background: transparent !important;
+    background: #263238 !important;
 }
 
 @media (max-width: 991px) {
@@ -42,9 +27,9 @@ h5 {
     width: 80px;
 }
 
- .fa-play:before {
-     margin-left: .3rem;
- }
+.fa-play:before {
+    margin-left: .3rem;
+}
 
 /* Steps */
 .step {
@@ -98,12 +83,12 @@ h5 {
     bottom: 1rem;
 }
 
-.top-nav-collapse{
+.top-nav-collapse {
     background-color: #263238 !important;
 }
 
-@media screen and (max-width: 991px){
-    .navbar:not(.top-nav-collapse){
+@media screen and (max-width: 991px) {
+    .navbar:not(.top-nav-collapse) {
         background-color: #263238 !important;
     }
 }
@@ -149,4 +134,56 @@ h5 {
 
 .alert-arrow-danger .alert-icon::after {
     border-left: .75rem solid #da4932;
+}
+
+.dark-blue {
+    color: #263238;
+}
+
+.roboto-fonts {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn-outline-dark-danger {
+    border: 2px solid #b1432f;
+    color: #b1432f;
+}
+
+.btn-outline-dark-green{
+    border: 2px solid #247d29;
+    color: #247d29;
+}
+
+.collage {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15) !important;
+    padding: 2em 2.5em;
+    margin: 1em 1.5em 2em;
+}
+
+
+.play-list{
+    overflow: hidden;
+    padding: 0 2rem;
+    max-width: 100%;
+}
+
+.play-list-item{
+    -webkit-box-shadow: 8px 0px 16px 0px #ffffff !important;
+    box-shadow: 8px 0px 16px 0px #ffffff !important;
+    margin: 0;
+    padding: 0;
+    margin-right: -5rem;
+}
+
+.play-list-item > img{
+    width: 100%;
+}
+
+#img_for_cropper{
+    width: 100% !important;
+}
+
+#img_for_cropper img{
+    width: 100% !important;
 }
