@@ -3,9 +3,12 @@ package router
 import (
 	"UAGuide/models"
 	"UAGuide/pagination"
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
+	"time"
 )
 
 func signUp(writer http.ResponseWriter, request *http.Request) {
@@ -240,15 +243,95 @@ func userPlaces(writer http.ResponseWriter, request *http.Request) {
 		return
 	}
 
+	var page = 1
+
+	if _, ok := request.URL.Query()["page"]; ok {
+		if page, err = strconv.Atoi(request.URL.Query()["page"][0]); err != nil {
+			log.Printf("%s\n", err)
+			page = 1
+		}
+	}
+
 	var placeList models.PlaceList
-	_, err = pagination.NewPaginator(db, &placeList, 1, 10, nil)
+	p, err := pagination.NewPaginator(db, &placeList, page, 10, nil)
+	if err != nil {
+		log.Printf("%s\n", err)
+		print500ErrorPage(writer, request, err)
+		return
+	}
 
 	tmpl := template.Must(template.ParseFiles("templates/cabinet/places.html"))
 	err = tmpl.Execute(writer, map[string]interface{}{
-		"user": u,
+		"user":      u,
+		"paginator": p,
 	})
 	if err != nil {
 		log.Printf("%s\n", err)
 		print500ErrorPage(writer, request, err)
 	}
+}
+
+func userPlacesSuggestion(writer http.ResponseWriter, request *http.Request) {
+	session, err := sessionStore.Get(request, userSessionName)
+	if err != nil {
+		log.Printf("%s\n", err)
+		print500ErrorPage(writer, request, err)
+		return
+	}
+
+	if !checkLoginUser(session) {
+		http.Redirect(writer, request, "/signIn", 302)
+		return
+	}
+
+	var u models.User
+	u.Id = session.Values["user"].(int)
+	if err := u.Get(db); err != nil {
+		log.Printf("%s\n", err)
+		print500ErrorPage(writer, request, err)
+		return
+	}
+
+	var cl models.CitiesList
+
+	if err := cl.Get(db); err != nil {
+		log.Printf("%s\n", err)
+		print500ErrorPage(writer, request, err)
+		return
+	}
+
+	if request.Method == http.MethodPost {
+		var place models.Place
+		place.Name = request.FormValue("name")
+		place.Description = request.FormValue("description")
+		if place.City.Id, err = strconv.Atoi(request.FormValue("city")); err != nil {
+			log.Printf("%s\n", err)
+			print500ErrorPage(writer, request, err)
+			return
+		}
+		place.User = u
+		place.Photo = request.FormValue("photo-src")
+		place.PrevPhoto = request.FormValue("crop-photo-src")
+		place.Private = true
+		place.Status = 0
+		year, month, day := time.Now().Date()
+		place.Date = fmt.Sprintf("%d.%d.%d", day, month, year)
+		if err := place.Add(db); err != nil {
+			log.Printf("%s\n", err)
+			print500ErrorPage(writer, request, err)
+			return
+		}
+	}
+
+	tmpl := template.Must(template.ParseFiles("templates/cabinet/placesSuggestion.html"))
+	err = tmpl.Execute(writer, map[string]interface{}{
+		"user":           u,
+		"cities":         cl,
+		"successMessage": "Місце відправленно на розгляд адміністрації",
+	})
+	if err != nil {
+		log.Printf("%s\n", err)
+		print500ErrorPage(writer, request, err)
+	}
+
 }

@@ -308,7 +308,7 @@
             }
             let xhr = new XMLHttpRequest();
             xhr.responseType = 'json';
-            xhr.open("POST", "/api/uploadImages");
+            xhr.open("POST", "/api/uploadProfileImages");
             xhr.withCredentials = true;
             xhr.send(img);
             xhr.onload = function () {

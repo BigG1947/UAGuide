@@ -36,11 +36,13 @@ func Init(conn *sql.DB) *mux.Router {
 	r.HandleFunc("/cabinet", cabinet)
 	r.HandleFunc("/cabinet/setting", settingProfile).Methods(http.MethodGet, http.MethodPost)
 	r.HandleFunc("/cabinet/places", userPlaces)
+	r.HandleFunc("/cabinet/places/suggestion", userPlacesSuggestion).Methods(http.MethodGet, http.MethodPost)
 
 	// Test Routes
 	r.HandleFunc("/api/city", callCityApi)
 	r.HandleFunc("/api/checkPhone", checkPhone)
 	r.HandleFunc("/api/checkEmail", checkEmail)
-	r.HandleFunc("/api/uploadImages", apiUploadImages).Methods(http.MethodPost)
+	r.HandleFunc("/api/uploadProfileImages", apiUploadProfileImages).Methods(http.MethodPost)
+	r.HandleFunc("/api/uploadPlacesImages", apiUploadPlacesImages).Methods(http.MethodPost)
 	return r
 }

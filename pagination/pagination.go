@@ -14,6 +14,8 @@ type PaginatingListItems interface {
 type Paginator struct {
 	HasNext     bool
 	HasPrev     bool
+	NextPage    int
+	PrevPage    int
 	TotalItems  int
 	TotalPage   int
 	CurrentPage int
@@ -36,6 +38,12 @@ func NewPaginator(db *sql.DB, items PaginatingListItems, page int, limitItems in
 	p.getPageList()
 	p.hasNext()
 	p.hasPrev()
+	if p.HasPrev {
+		p.PrevPage = p.CurrentPage - 1
+	}
+	if p.HasNext {
+		p.NextPage = p.CurrentPage + 1
+	}
 	if err = p.getItems(db, filters); err != nil {
 		return nil, err
 	}

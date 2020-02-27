@@ -3,6 +3,7 @@ package router
 import (
 	"github.com/gorilla/sessions"
 	"html/template"
+	"io/ioutil"
 	"log"
 	"net/http"
 )
@@ -20,6 +21,30 @@ func print500ErrorPage(writer http.ResponseWriter, request *http.Request, err er
 		return
 	}
 }
-func uploadImages() error {
-	return nil
+func uploadProfileImages(file []byte) (string, error) {
+	tempFile, err := ioutil.TempFile("upload/profile-photo/", "upload-photo-*.jpg")
+	if err != nil {
+		return "", err
+	}
+	defer tempFile.Close()
+
+	_, err = tempFile.Write(file)
+	if err != nil {
+		return "", err
+	}
+	return tempFile.Name(), nil
+}
+
+func uploadPlacesImages(file []byte) (string, error) {
+	tempFile, err := ioutil.TempFile("upload/places-photo/", "upload-photo-*.jpg")
+	if err != nil {
+		return "", err
+	}
+	defer tempFile.Close()
+
+	_, err = tempFile.Write(file)
+	if err != nil {
+		return "", err
+	}
+	return tempFile.Name(), nil
 }
